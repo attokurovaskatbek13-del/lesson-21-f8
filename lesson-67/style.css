@@ -1,0 +1,257 @@
+:root {
+    --bg-color: #0f172a;
+    --card-bg: #1e293b;
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    --accent: #38bdf8;
+    --accent-hover: #0284c7;
+    --danger: #ef4444;
+    --danger-hover: #dc2626;
+    --border: #334155;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    padding-bottom: 50px;
+}
+
+header {
+    background-color: var(--card-bg);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 0;
+    margin-bottom: 40px;
+}
+
+.navbar {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: color 0.3s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+#product {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+    border-color: var(--accent);
+}
+
+.card-img-container {
+    width: 100%;
+    height: 200px;
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info h4 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info .price {
+    font-size: 1.1rem;
+    color: var(--accent);
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.btns {
+    display: flex;
+    gap: 10px;
+}
+
+.update,
+.delete {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.update {
+    background-color: var(--border);
+    color: var(--text-main);
+}
+
+.update:hover {
+    background-color: var(--accent);
+    color: #000;
+}
+
+.delete {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger);
+    border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.delete:hover {
+    background-color: var(--danger);
+    color: white;
+}
+
+.update:active,
+.delete:active {
+    transform: scale(0.95);
+}
+
+/* Модалка с размытием заднего фона */
+.content {
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(15, 23, 42, 0.8);
+    backdrop-filter: blur(8px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 999;
+}
+
+.modal {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 420px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+.modal h3 {
+    font-size: 1.4rem;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.input-group label {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.modal input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--bg-color);
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.modal input:focus {
+    border-color: var(--accent);
+}
+
+.modal-btns {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.modal-btns button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+#submit {
+    background-color: var(--accent);
+    color: #0f172a;
+}
+
+#submit:hover {
+    background-color: var(--accent-hover);
+}
+
+#close {
+    background-color: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+}
+
+#close:hover {
+    background-color: var(--border);
+    color: white;
+}

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="ky">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Counter App</title>
+        <style>
+            * {
+                box-sizing: border-box;
+                font-family: Arial, sans-serif;
+            }
+
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-color: #f7f9fa;
+            }
+
+            .main-container {
+                display: flex;
+                align-items: center;
+                gap: 0;
+            }
+
+
+            .counter-box {
+                background-color: #eef0f6;
+                border: 1px solid #b0b5c2;
+                padding: 30px 40px;
+                border-radius: 4px;
+                box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+            }
+
+            .counter-box h2 {
+                margin-top: 0;
+                margin-bottom: 20px;
+                font-weight: 500;
+                color: #333;
+            }
+
+            .controls {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+
+
+            .btn-blue {
+                background-color: #001fc4;
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                border-radius: 4px;
+                transition: background 0.2s;
+            }
+
+            .btn-blue:hover {
+                background-color: #00179c;
+            }
+
+            .counter-value {
+                font-size: 18px;
+                font-weight: bold;
+                min-width: 25px;
+                display: inline-block;
+            }
+
+
+            .connector-section {
+                display: flex;
+                align-items: center;
+            }
+
+            .line {
+                width: 50px;
+                height: 4px;
+                border-top: 1px solid #b0b5c2;
+                border-bottom: 1px solid #b0b5c2;
+                background-color: transparent;
+            }
+
+
+            .display-box {
+                width: 250px;
+                height: 350px;
+                border: 1px solid #7f7f7f;
+                background-color: white;
+                padding: 20px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+            }
+
+
+            .result-item {
+                background-color: #eef0f6;
+                padding: 8px;
+                border-radius: 4px;
+                text-align: center;
+                font-weight: bold;
+                border: 1px solid #cbd0dd;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="main-container">
+            <div class="counter-box">
+                <h2>Counter</h2>
+                <div class="controls">
+                    <button class="btn-blue" id="plus-btn">+</button>
+                    <span class="counter-value" id="counter-num">0</span>
+                    <button class="btn-blue" id="minus-btn">-</button>
+                    <button class="btn-blue" id="prompt-btn">*</button>
+                </div>
+            </div>
+
+            <div class="connector-section">
+                <div class="line"></div>
+                <button class="btn-blue" id="add-btn">add</button>
+                <div class="line"></div>
+            </div>
+
+            <div class="display-box" id="result-box"></div>
+        </div>
+
+        <script>
+            const counterNum = document.getElementById('counter-num');
+            const plusBtn = document.getElementById('plus-btn');
+            const minusBtn = document.getElementById('minus-btn');
+            const promptBtn = document.getElementById('prompt-btn');
+            const addBtn = document.getElementById('add-btn');
+            const resultBox = document.getElementById('result-box');
+
+            let count = 0;
+
+
+            function updateDisplay() {
+                counterNum.textContent = count;
+            }
+
+
+            plusBtn.addEventListener('click', () => {
+                count++;
+                updateDisplay();
+            });
+
+
+            minusBtn.addEventListener('click', () => {
+                count--;
+                updateDisplay();
+            });
+
+
+            promptBtn.addEventListener('click', () => {
+                let userInput = prompt("Сан киргизиңиз (Мисалы: 44):");
+
+
+                if (userInput !== null && userInput.trim() !== "") {
+                    let parsedNumber = parseInt(userInput);
+
+                    if (!isNaN(parsedNumber)) {
+                        count = parsedNumber;
+                        updateDisplay();
+                    } else {
+                        alert("Сураныч, туура сан киргизиңиз!");
+                    }
+                }
+            });
+
+
+            addBtn.addEventListener('click', () => {
+                const newItem = document.createElement('div');
+                newItem.className = 'result-item';
+                newItem.textContent = "Номер: " + count;
+                resultBox.appendChild(newItem);
+            });
+        </script>
+
+    </body>
+
+    </html>
+
+
+    </div>
+</body>
+
+</html>

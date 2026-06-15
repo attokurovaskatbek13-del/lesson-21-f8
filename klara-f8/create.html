@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Premium Product</title>
+    <link rel="stylesheet" href="create.css">
+</head>
+
+<body>
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Store<span>Admin</span></a>
+            <nav>
+                <a href="./index.html">Home</a>
+                <a href="./create.html" class="active">Create Product</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="form-container">
+        <div class="form-card">
+            <h2>Create New Product</h2>
+            <p class="form-subtitle">Fill in the fields to add a new luxury item to the catalog.</p>
+
+            <div class="input-group">
+                <label>Product Name</label>
+                <input type="text" id="input1" placeholder="e.g. Leather Watch">
+            </div>
+
+            <div class="input-group">
+                <label>Price ($)</label>
+                <input type="number" id="input2" placeholder="e.g. 250">
+            </div>
+
+            <div class="input-group">
+                <label>Image URL</label>
+                <input type="url" id="input3" placeholder="https://images.unsplash.com/...">
+            </div>
+
+            <button id="create">Create Product</button>
+        </div>
+    </main>
+
+    <script src="create.js"></script>
+</body>
+
+</html>

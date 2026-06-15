@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+    <h1 style="text-align: center; margin: 40px 0;">Биздин Продукциялар</h1>
+
+    <div id="products-container" class="products-grid"></div>
+
+
+
+    </style>
+    </head>
+
+    <body>
+
+
+        <h1>Биздин продукциялар</h1>
+        <ul id="products-list"></ul>
+
+        <script>
+            async function fetchProducts() {
+                const url = 'https://dummyjson.com/products';
+                const listElement = document.getElementById('products-list');
+
+                try {
+                    const response = await fetch(url);
+                    const data = await response.json();
+
+                    // DummyJSON маалыматты 'products' деген массивдин ичинде берет
+                    const products = data.products;
+
+                    // Ар бир продукцияны экранга чыгаруу
+                    products.forEach(product => {
+                        const card = document.createElement('li');
+                        card.classList.add('product-card');
+
+                        card.innerHTML = `
+                        <img src="${product.thumbnail}" alt="${product.title}">
+                        <h3>${product.title}</h3>
+                        <p>${product.description.slice(0, 60)}...</p>
+                        <p class="price">$${product.price}</p>
+                    `;
+
+                        listElement.appendChild(card);
+                    });
+
+                } catch (error) {
+                    console.error("Маалымат алууда ката кетти:", error);
+                    listElement.innerHTML = "<p>Маалыматты жүктөөдө ката келип чыкты.</p>";
+                }
+            }
+
+            // Баракча ачылганда функцияны иштетүү
+            fetchProducts();
+        </script>
+    </body>
+
+</html>
+
+<h1>Акыркы жаңылыктар / Посттор</h1>
+<div id="posts-container"></div>
+
+<script>
+    async function fetchPosts() {
+        const url = 'https://dummyjson.com/posts';
+        const container = document.getElementById('posts-container');
+
+        try {
+            const response = await fetch(url);
+            const data = await response.json();
+
+            // DummyJSON постторду 'posts' массивинин ичинде берет
+            const posts = data.posts;
+
+            // Контейнерди тазалоо
+            container.innerHTML = '';
+
+            // Ар бир постту экранга чыгаруу
+            posts.forEach(post => {
+                const postCard = document.createElement('div');
+                postCard.classList.add('post-card');
+
+                // Тегдерди өзүнчө спан (span) кылып түзүү
+                const tagsHTML = post.tags.map(tag => `<span class="tag">#${tag}</span>`).join('');
+
+                postCard.innerHTML = `
+                        <h2 class="post-title">${post.title}</h2>
+                        <p class="post-body">${post.body}</p>
+                        <div class="tags">${tagsHTML}</div>
+                        <div class="reactions">
+                            <span>👍 Жактыруулар: ${post.reactions.likes || 0}</span> | 
+                            <span>👎 Жактырбоолор: ${post.reactions.dislikes || 0}</span> | 
+                            <span>👁 Көрүүлөр: ${post.views || 0}</span>
+                        </div>
+                    `;
+
+                container.appendChild(postCard);
+            });
+
+        } catch (error) {
+            console.error("Маалыматты алууда ката кетти:", error);
+            container.innerHTML = "<p style='text-align:center; color:red;'>Постторду жүктөөдө ката келип чыкты.</p>";
+        }
+    }
+
+    // Баракча ачылганда функцияны чакыруу
+    fetchPosts();
+
+
+
+
+</script>
+</body>
+
+</html>

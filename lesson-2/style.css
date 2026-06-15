@@ -1,0 +1,23 @@
+.card {
+    border: 2px rgb(139, 19, 19);
+    width: 350px;
+    height: 400px;
+}
+
+.card img {
+    width: 280px;
+}
+
+.text {
+    color: blue;
+}
+
+.image {
+    width: 180px;
+    height: 200px;
+}
+
+.image {
+    width: 270px;
+    height: 300px;
+}

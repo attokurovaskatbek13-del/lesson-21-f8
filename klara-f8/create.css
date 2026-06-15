@@ -1,0 +1,132 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: #f8f9fa;
+    color: #212529;
+}
+
+header {
+    background: #ffffff;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #1a1a1a;
+    text-decoration: none;
+}
+
+.logo span {
+    color: #b89667;
+}
+
+nav a {
+    color: #6c757d;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin-left: 25px;
+}
+
+nav a.active {
+    color: #b89667;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 120px);
+    padding: 20px;
+}
+
+.form-card {
+    background: #ffffff;
+    border-radius: 24px;
+    padding: 40px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e9ecef;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.form-card h2 {
+    font-size: 1.6rem;
+    color: #1a1a1a;
+}
+
+.form-subtitle {
+    font-size: 0.9rem;
+    color: #6c757d;
+    margin-top: -12px;
+    line-height: 1.4;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.input-group label {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #495057;
+    text-transform: uppercase;
+}
+
+.form-card input {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #dee2e6;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    background: #f8f9fa;
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+.form-card input:focus {
+    border-color: #b89667;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(184, 150, 103, 0.15);
+}
+
+#create {
+    width: 100%;
+    padding: 16px;
+    background: #b89667;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s ease;
+}
+
+#create:hover {
+    background: #1a1a1a;
+}
